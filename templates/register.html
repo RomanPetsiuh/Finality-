@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="title" id="title" placeholder="Назва Виробника" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="org" id="org" placeholder="Модель Автомобіля" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="start" id="start" placeholder="Початок Експлуатації(mm/dd)" type="date">
+            <input autocomplete="off" autofocus class="form-control" name="end" id="end" placeholder="Кінець Експлуатації(mm/dd)" type="date">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="type" id="type" placeholder="Колір" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="website" id="website" placeholder="Мейл Користувача" type="text">
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Відгук Користування</span>
+            </div>
+            <textarea class="form-control" aria-label="With textarea" name="description" id="description"></textarea>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Реєстрація</button>
+    </form>
+
+    <script>
+        document.querySelector('form').onsubmit = function()
+        {
+            if (!document.querySelector('#title').value) {
+                alert('Вкажіть Виробника!');
+                return false;
+            }
+            if (!document.querySelector('#org').value) {
+                alert('Вкажіть марку!');
+                return false;
+            }
+            if (!document.querySelector('#start').value) {
+                alert('Початок Екслуатації!');
+                return false;
+            }
+            if (!document.querySelector('#end').value) {
+                alert('Кінець Екслуатації!');
+                return false;
+            }
+            if (!document.querySelector('#type').value) {
+                alert('Вкажіть Колір!');
+                return false;
+            }
+            if (!document.querySelector('#website').value) {
+                alert('Вкажіть власний мейл!');
+                return false;
+            }
+            if (!document.querySelector('#description').value) {
+                alert('Відгук від користування!');
+                return false;
+            }
+            return true;
+        };
+        </script>
+
+{% endblock %}
