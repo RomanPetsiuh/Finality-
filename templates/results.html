@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h1 style="color:#ff9900;">Результат Пошуку</h1>
+       <ol>
+        {% for result in results %}
+            <li><a href="{{ '/program?id=%s'%result.id }}">{{ result.title }}</a>
+                <ul>
+                    <li>Марка Автомобіля: {{ result.org }}</li>
+                    <li>Колір: {{ result.type }}</li>
+                    <li>Період Експлуатації: {{ result.start }} to {{ result.end }}</li>
+                    <li>Мейл Користувача: <a href="{{ result.website }}">{{ result.website }}</a></li>
+                </ul>
+            </li>
+            <br>
+        {% endfor %}
+    </ol>
+    <br>
+        <strong>
+    <p style="color:#ff9900;">Не можеш знайти свій відгук?</p>
+    <p style="color:#ff9900;">Тут можна зареєструвати відгук на автомобіль <a href="/register">ТУТ</a>!</p>
+    </strong>
+{% endblock %}
