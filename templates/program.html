@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <h1 style="color:#2ECC71;">{{ info.title }}</h1>
+    <br>
+    <h2 style="color:#ffd11a;">Оцінка Рейтингу: {{ info.rating }}/5</h2>
+    <br>
+    <h3>{{ info.org }}</h3>
+    <br>
+    <h4>Дати: {{ info.start }} to {{ info.end }}</h4>
+    <br>
+    <h4>Мейл Користувача: <a href="{{ info.website }}">{{ info.website }}</a></h4>
+    <br>
+    <p>{{ info.description }}</p>
+    <br>
+    <h4 style="color:#ff9900;"><strong>Попередній Відгук</strong></h4>
+    <br>
+
+    {% for review in reviews %}
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ review.title }}</h5>
+          <small>Rating: {{ review.rating }}</small>
+        </div>
+        <p class="mb-1">{{ review.review }}</p>
+        <small>by {{ review.nickname }}</small>
+      </a>
+    </div>
+    {% endfor %}
+    <br>
+
+    <h4 style="color:#ff9900;"><strong>Подай власний Відгук!</strong></h4>
+    <br>
+
+    <form action="/program" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="nickname" id="nickname" placeholder="Виробник" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="rating" id="rating" placeholder="Рейтинг: 0-5" type="number">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="title" id="title" placeholder="Марка" type="text">
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Висновок</span>
+            </div>
+            <textarea class="form-control" aria-label="With textarea" name="review" id = "review"></textarea>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Подати</button>
+    </form>
+
+    <script>
+
+document.querySelector('form').onsubmit = function()
+        {
+            if (!document.querySelector('#nickname').value) {
+                alert('Прохання внеси назву Виробника!');
+                return false;
+            }
+            if (!document.querySelector('#rating').value) {
+                alert('Прохання внеси рейтинг!');
+                return false;
+            }
+            if (document.querySelector('#rating').value > 5 || document.querySelector('#rating').value < 0) {
+                alert('Рейтинг маєбути від 0 to 5!');
+                return false;
+            }
+            if (!document.querySelector('#title').value) {
+                alert('Вкажи марку автомобіля');
+                return false;
+            }
+            if (!document.querySelector('#review').value) {
+                alert('Відгук про користування автомобілем');
+                return false;
+            }
+            return true;
+        };
+    </script>
+
+{% endblock %}
