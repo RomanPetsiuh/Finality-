@@ -1,4 +1,4 @@
-Веб Сайт "Рейтинг Авто" - який дозволяє користувачам здійснювати пошук у базі даних відгуків використаних автомобілів, перегладати відгуки інших користувачів і дописувати власні.
-На першій сторінці пропонуєтся внесення назви виробника.
-Якщо назва співпадає - видаєтся результат по відгукам і їх можна переглянути кожен окремо з можливість додати власний відгук з оцінюваннням по шкалі.
-Якщо ж відгуки по цій марці відсутні - можна заповнити відгук самостійно і він додасться до бази.
+"Rating Auto" website - which allows users to search the database of reviews of used cars, read other users' reviews and add their own.
+On the first page, it is suggested to enter the name of the manufacturer.
+If the name matches - the result of the reviews is displayed and you can view them individually with the possibility of adding your own review with a rating on the scale.
+If there are no reviews for this brand, you can fill in the review yourself and it will be added to the database.
